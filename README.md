@@ -2,6 +2,7 @@
 
 #### App.Config
 > Учебное приложение для работы с файлом конфигурации App.Config
+
 [App.Config](./App.Config/)
 
 #### ExerciseCrypt
