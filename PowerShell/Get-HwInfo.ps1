@@ -8,6 +8,100 @@
 # http://github.com/GnuriaN/
 ###############################################################################
 
+<#
+.SYNOPSIS
+Get information about the physical disks and volumes on a system.
+ 
+.DESCRIPTION
+Get details about the physical disks and the volumes located on
+those disks, to make it easier to identify corresponding vSphere
+storage (VMDKs).
+ 
+.EXAMPLE
+ 
+PS C:\> .\Get-DiskInfo.ps1
+ 
+.NOTES
+    Author: Geoff Duke <Geoffrey.Duke@uvm.edu>
+    Based on http://bit.ly/XowLns and http://bit.ly/XeIqFh
+#>
+
+function HDD ($diskdrives)
+{
+ 
+    #$diskdrives = get-wmiobject Win32_DiskDrive | sort Index
+ 
+    $colSize = @{Name='Size';Expression={Get-HRSize $_.Size}}
+ 
+    foreach ( $disk in $diskdrives ) {
+ 
+        "--------------------------------------------------------------------"
+        $scsi_details = 'SCSI ' + $disk.SCSIBus         + ':' +
+                                  $disk.SCSILogicalUnit + ':' +
+                                  $disk.SCSIPort        + ':' +
+                                  $disk.SCSITargetID
+        write $( 'Disk ' + $disk.Index + ' - ' + $scsi_details +
+                 ' - ' + ( Get-HRSize $disk.size) +' ( '+ $disk.Caption + ' )')
+        Write-Host
+        "Serial Number: " + $disk.SerialNumber
+        "Fireware revision: " + $disk.FirmwareRevision
+        "Interface type: " + $disk.InterfaceType
+        "Status: " + $disk.Status
+        "DeviceID: " + $disk.DeviceID
+        Write-Host
+        $part_query = 'ASSOCIATORS OF {Win32_DiskDrive.DeviceID="' +
+                      $disk.DeviceID.replace('\','\\') +
+                      '"} WHERE AssocClass=Win32_DiskDriveToDiskPartition'
+ 
+        $partitions = @( get-wmiobject -query $part_query | 
+                         sort StartingOffset )
+        foreach ($partition in $partitions) {
+ 
+            $vol_query = 'ASSOCIATORS OF {Win32_DiskPartition.DeviceID="' +
+                         $partition.DeviceID +
+                         '"} WHERE AssocClass=Win32_LogicalDiskToPartition'
+            $volumes   = @(get-wmiobject -query $vol_query)
+ 
+            write $( '    Partition ' + $partition.Index + '  ' +
+                     ( Get-HRSize $partition.Size) + '  ' +
+                     $partition.Type
+                   )
+ 
+            foreach ( $volume in $volumes) {
+                write $( '        ' + $volume.name + 
+                         ' ( ' + $volume.VolumeName + ' )' +
+                         ' [' + $volume.FileSystem + '] ' + 
+                         ( Get-HRSize $volume.Size ) + ' ( ' +
+                         ( Get-HRSize $volume.FreeSpace ) + ' free )'
+                         
+                       )
+ 
+            } # end foreach vol
+ 
+        } # end foreach part
+ 
+        write ''
+ 
+    } # end foreach disk
+ 
+}
+ 
+###############################################################################
+function Get-HRSize {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory=$True, ValueFromPipeline=$True)]
+        [INT64] $bytes
+    )
+    process {
+        if     ( $bytes -gt 1pb ) { "{0:N2} PB" -f ($bytes / 1pb) }
+        elseif ( $bytes -gt 1tb ) { "{0:N2} TB" -f ($bytes / 1tb) }
+        elseif ( $bytes -gt 1gb ) { "{0:N2} GB" -f ($bytes / 1gb) }
+        elseif ( $bytes -gt 1mb ) { "{0:N2} MB" -f ($bytes / 1mb) }
+        elseif ( $bytes -gt 1kb ) { "{0:N2} KB" -f ($bytes / 1kb) }
+        else   { "{0:N} Bytes" -f $bytes }
+    }
+} # End Function:Get-HRSize
 ###############################################################################
 function OnDate($param) 
 {
@@ -32,9 +126,10 @@ function Get-HwInfo ($computers = ".")
     # Video Adapter
     $Video = Get-WmiObject Win32_VideoController -ComputerName $computers
     # Disk media
-    $DiskDrive = Get-WmiObject Win32_DiskDrive -ComputerName $computers
+    $DiskDrive = Get-WmiObject Win32_DiskDrive -ComputerName $computers | sort Index
     # Logical disk
-    $DiskLogical = Get-WmiObject Win32_LogicalDisk -ComputerName $computers
+    # $DiskLogical = Get-WmiObject Win32_LogicalDisk -ComputerName $computers
+
     # NetworkAdapter
     $NIC = Get-WmiObject Win32_NetworkAdapter -ComputerName $computers | ?{$_.NetConnectionID -ne $null}
     # Operation System
@@ -106,28 +201,7 @@ function Get-HwInfo ($computers = ".")
     }
 
     "Hard disk:"
-    foreach ($objItem in $DiskDrive)
-    {
-        "Manufacturer: " + $objItem.Caption
-        "Serial Number: " + $objItem.SerialNumber
-        "Fireware revision: " + $objItem.FirmwareRevision
-        "Interface type: " + $objItem.InterfaceType
-        "Size: " + $objItem.Size / 1024 /1024 /1024 + " Gbyte"
-        Write-Host
-    }
-
-    "Logical disk:"
-    foreach ($objItem in $DiskLogical)
-    {
-        "Logic disk: " + $objItem.Caption
-        "File system: " + $objItem.FileSystem
-        "Description: " + $objItem.Description
-        "Free Space: " + ($objItem.FreeSpace / 1024 /1024 /1024)  + " (" + (($objItem.FreeSpace /$objItem.Size * 100).ToString()).Substring(0,5) + "%)" + " Gbyte"
-        "Free Space (%): " + (($objItem.FreeSpace /$objItem.Size * 100).ToString()).Substring(0,5)
-        "Size: " + $objItem.Size /1024 /1024 /1024 + " Gbyte" 
-        "Volume: " + $objItem.VolumeName
-        Write-Host
-    }
+    HDD($DiskDrive)
 
     "Network"
     foreach ($objItem in $NIC)
