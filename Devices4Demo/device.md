@@ -8,7 +8,9 @@ eMashines E527 Series E527-902G16Mi (Intel Celeron 900 2.2Ghz | 4Gb | 160 Gb ) -
 
 ## Мониторы
 
-Samsung SyncMaster 732N - 1 шт. [http://zoom.cnews.ru/goods_card/item/39499/bug](http://zoom.cnews.ru/goods_card/item/39499/bug)
+Samsung SyncMaster 732N 17" - 1 шт. [http://zoom.cnews.ru/goods_card/item/39499/bug](http://zoom.cnews.ru/goods_card/item/39499/bug)
+
+BenQ T52WA 15" - 1 шт. [http://zoom.cnews.ru/goods_card/item/114280/benq-t52wa](http://zoom.cnews.ru/goods_card/item/114280/benq-t52wa)
 
 ## Wi-FI
 ### Оборудование 
@@ -26,6 +28,7 @@ Mikrotik mAP 2n (RBmap2nD) - 1 шт. [https://mikrotik.com/product/RBmAP2nD](htt
 Антены TP-Link 8 дБи - 2 шт.[http://www.tp-linkru.com/products/details/cat-5691_TL-ANT2408CL.html](http://www.tp-linkru.com/products/details/cat-5691_TL-ANT2408CL.html)
 
 Антены TP-Link 4 дБи - 1 шт.
+
 Антены D-Link 3 дБи - 1 шт.
 
 ### Карты
