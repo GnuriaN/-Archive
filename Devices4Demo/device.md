@@ -1,13 +1,14 @@
 # Список имеющегося оборудования для демонстраций
 
-## Сетефое оборудование
-
 ## ПК и ноутбуки
 
 HP ProBook 6550b (характеристики) - 1 шт. 
 
-eMashines (характеристики) - 1 шт. 
+eMashines E527 Series E527-902G16Mi (Intel Celeron 900 2.2Ghz | 4Gb | 160 Gb )- 1 шт.  [http://zoom.cnews.ru/goods_card/item/198400/acer-emachines-e527-902g16mi](http://zoom.cnews.ru/goods_card/item/198400/acer-emachines-e527-902g16mi)
 
+## Мониторы
+
+Samsung SyncMaster 732N [http://zoom.cnews.ru/goods_card/item/39499/bug](http://zoom.cnews.ru/goods_card/item/39499/bug)
 
 ## Wi-FI
 ### Оборудование 
@@ -24,7 +25,7 @@ Mikrotik mAP 2n (RBmap2nD) - 1 шт. [https://mikrotik.com/product/RBmAP2nD](htt
 
 Антены TP-Link 8 дБи - 2 шт.[http://www.tp-linkru.com/products/details/cat-5691_TL-ANT2408CL.html](http://www.tp-linkru.com/products/details/cat-5691_TL-ANT2408CL.html)
 
-Антены TP-Link NoNeMe 4 дБи
+Антены TP-Link NoNeMe 4 дБи - 1 шт.
 
 ### Карты
 
@@ -36,7 +37,20 @@ TRENDnet TEW-648UBM - 1 шт. [http://www.trendnetrussia.ru/products/wifi/N-adap
 
 TRENDnet TEW-624UB - 5 шт. [http://www.trendnet.com/langru/products/wifi/n-adapters/n300/tew-624ub](http://www.trendnet.com/langru/products/wifi/n-adapters/n300/tew-624ub)
 
+## The NET
 
+### Switch
+
+D-Link DES-1016D [http://www.dlink.ru/u/products/1/33.html](http://www.dlink.ru/u/products/1/33.html)
+D-Link DES-1005A [http://www.dlink.ru/ru/products/1/1789.html](http://www.dlink.ru/ru/products/1/1789.html)
+
+### Routers
+
+D-Link DIR-120 [http://www.dlink.ru/u/products/5/744.html](http://www.dlink.ru/u/products/5/744.html)
+
+### HUB
+
+Compex MicroHUB/8 TP1008C [https://www.cnet.com/products/compex-microhub-tp1008c-hub-8-ports-desktop-series/specs/](https://www.cnet.com/products/compex-microhub-tp1008c-hub-8-ports-desktop-series/specs/)
 
 ## Разное
 
