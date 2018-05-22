@@ -75,7 +75,6 @@ Grandstream HT503 [http://www.grandstream.ru/product/ht503](http://www.grandstre
 ## Разное
 
 SATA 2.5 -> CF  - 1 шт.   
-IDE -> CF  - 1 шт.    
-Rasbery Pi 2 B  - 1 шт.       
+IDE -> CF  - 1 шт.      
      
 Megafon 4G LTE modem - 1 шт.  
