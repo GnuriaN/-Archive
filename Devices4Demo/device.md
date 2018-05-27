@@ -7,14 +7,14 @@ HP ProBook 6560b (характеристики) - 1 шт. [http://zoom.cnews.ru/
 eMashines E527 Series E527-902G16Mi (Intel Celeron 900 2.2Ghz | 4Gb | 160 Gb ) - 1 шт.  [http://zoom.cnews.ru/goods_card/item/198400/acer-emachines-e527-902g16mi](http://zoom.cnews.ru/goods_card/item/198400/acer-emachines-e527-902g16mi)
 
 ### ПК (наборы комплектующих)
-####Набор №1
+#### Набор №1
 
 **MatherBoard:** GIGABYTE GA-H61M-DS2 Rev:3.0    
 **CPU:** Intel Pentium G2010 [https://ark.intel.com/ru/products/71071/Intel-Pentium-Processor-G2010-3M-Cache-2_80-GHz?q=G2010](https://ark.intel.com/ru/products/71071/Intel-Pentium-Processor-G2010-3M-Cache-2_80-GHz?q=G2010)    
 **Cooler:** DeepCool    
 **Mem:** Crucial CT1024648A1608 C16FER 8GB DDR3 1600    
 
-####Набор №2
+#### Набор №2
 
 **MatherBoard:** ASRock H61M-VG3 Rev:1.02    
 **CPU:** Intel Pentium G2020 [https://ark.intel.com/ru/products/71070/Intel-Pentium-Processor-G2020-3M-Cache-2_90-GHz?q=BX80637G2020](https://ark.intel.com/ru/products/71070/Intel-Pentium-Processor-G2020-3M-Cache-2_90-GHz?q=BX80637G2020)
